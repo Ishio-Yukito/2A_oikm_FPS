@@ -107,3 +107,6 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+2A_oikm_FPS/Library/
+2A_oikm_FPS/Temp/UnityLockfile
+2A_oikm_FPS/Temp/
