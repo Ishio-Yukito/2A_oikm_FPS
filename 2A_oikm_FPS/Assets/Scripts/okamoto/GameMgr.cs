@@ -5,8 +5,11 @@ public class GameMgr : MonoBehaviour
 {
     public static GameMgr Instance { get; private set; }
 
+    [SerializeField] private Slider hpSlider;
     [SerializeField] private GameObject weaponUI;
-    public Slider mySlider;
+
+    // GameObject ではなく Text コンポーネント型で直接受け取る
+    [SerializeField] private Text bulletCountText;
 
     private void Awake()
     {
@@ -20,26 +23,35 @@ public class GameMgr : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        if (mySlider != null)
+        if (hpSlider != null)
         {
-            mySlider.maxValue = 100f; // スライダーの最大値も設定しておくと安心です
-            mySlider.value = 100f;
+            hpSlider.maxValue = 100f;
+            hpSlider.value = 100f;
         }
     }
 
-    void Update()
+    private void Update()
     {
-        HPSlider();
+        UpdateHPSlider();
+        UpdateBulletCount();
     }
 
-    void HPSlider()
+    private void UpdateHPSlider()
     {
-        // PlayerSatus.Instance と mySlider の両方が null でないか確認
-        if (PlayerSatus.Instance != null && mySlider != null)
+        if (PlayerSatus.Instance != null && hpSlider != null)
         {
-            mySlider.value = PlayerSatus.Instance.CurrentHP;
+            hpSlider.value = PlayerSatus.Instance.CurrentHP;
+        }
+    }
+
+    private void UpdateBulletCount()
+    {
+        // プレイヤーが存在し、テキストUIが割り当てられている場合のみ更新
+        if (K04_Player.Instance != null && bulletCountText != null)
+        {
+            bulletCountText.text = K04_Player.Instance.bulletcount.ToString();
         }
     }
 }
