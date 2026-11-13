@@ -86,6 +86,15 @@ public class PlayerContoroller : MonoBehaviour
             Instantiate(Bullet1, launch_Pos, cam.transform.rotation);
         }
     }
+
+    //プレイヤー行動処理
+    void OnInteract(InputValue val)
+    {
+        if(val.isPressed)
+        {
+
+        }
+    }
     #endregion
 
     #region - 当たり判定用関数
@@ -111,21 +120,6 @@ public class PlayerContoroller : MonoBehaviour
     }
     #endregion
 
-    /*
-    #region - カメラ操作(マウス)
-    void CameraOperation()
-    {
-        mx = Input.GetAxis("Mouse X");
-        my = Input.GetAxis("Mouse Y");
-
-        if(Mathf.Abs(mx)>0.01f)
-        {
-            transform.RotateAround(transform.position, Vector3.up, mx); // 回転軸はplayerオブジェクトのワールド座標Y軸
-        }
-    }
-
-    #endregion
-    */
     #region -FPSカメラ用の関数
     void moveDir_CAM_cnv()                                              /// キー入力ベクトルをカメラ（画面）基準ベクトルに変換する
     {
