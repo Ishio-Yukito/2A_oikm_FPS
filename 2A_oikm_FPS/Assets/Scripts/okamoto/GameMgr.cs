@@ -6,6 +6,7 @@ public class GameMgr : MonoBehaviour
     public static GameMgr Instance { get; private set; }
 
     [SerializeField] private Slider hpSlider;
+    [SerializeField] private GameObject fillObject; // Sliderの「Fill」を指定
     [SerializeField] private GameObject weaponUI;
 
     // GameObject ではなく Text コンポーネント型で直接受け取る
@@ -42,7 +43,14 @@ public class GameMgr : MonoBehaviour
     {
         if (PlayerSatus.Instance != null && hpSlider != null)
         {
-            hpSlider.value = PlayerSatus.Instance.CurrentHP;
+            float currentHp = PlayerSatus.Instance.CurrentHP;
+            hpSlider.value = currentHp;
+
+            // HPが0より大きい時だけ緑色のゲージを表示する
+            if (fillObject != null)
+            {
+                fillObject.SetActive(currentHp > 0);
+            }
         }
     }
 
