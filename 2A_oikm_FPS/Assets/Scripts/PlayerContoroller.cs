@@ -84,7 +84,6 @@ public class PlayerContoroller : MonoBehaviour
         {
             Vector3 launch_Pos = cam.transform.position + cam.transform.forward * 1.0f;
             Instantiate(Bullet1, launch_Pos, cam.transform.rotation);
-            Debug.DrawRay(cam.position, cam.forward * 10f, Color.red, 2f);
         }
     }
     #endregion
