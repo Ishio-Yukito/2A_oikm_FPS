@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Bullet
+  - EnemyBullet
+  - Item
+  - Explosion
+  - Objector
+  - Enemy
+  - pBullet
+  - Wall
+  - Ground
+  - Death
   layers:
   - Default
   - TransparentFX

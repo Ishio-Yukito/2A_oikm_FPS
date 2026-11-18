@@ -40,18 +40,18 @@ public class GameMgr : MonoBehaviour
 
     private void UpdateHPSlider()
     {
-        if (PlayerSatus.Instance != null && hpSlider != null)
+        if (PlayerContoroller.Instance != null && hpSlider != null)
         {
-            hpSlider.value = PlayerSatus.Instance.CurrentHP;
+            hpSlider.value = PlayerContoroller.Instance.Hp;
         }
     }
 
     private void UpdateBulletCount()
     {
         // プレイヤーが存在し、テキストUIが割り当てられている場合のみ更新
-        if (K04_Player.Instance != null && bulletCountText != null)
+        if (PlayerContoroller.Instance != null && bulletCountText != null)
         {
-            bulletCountText.text = K04_Player.Instance.bulletcount.ToString();
+            bulletCountText.text = PlayerContoroller.Instance.bulletcount.ToString();
         }
     }
 }

@@ -1,12 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerContoroller : MonoBehaviour
 {
     #region - 変数宣言
+    public static PlayerContoroller Instance { get; private set; }
     Vector3 moveVelocity;                   //　キー入力による移動ベクトル
-    [SerializeField]float speed = 0.2f;       //  プレイヤーの速度
-    [SerializeField]float jump  = 5f;       //  ジャンプの高さ
+    [SerializeField] float speed = 0.2f;     //  プレイヤーの速度
+    [SerializeField] float jump = 5f;       //  ジャンプの高さ
     Rigidbody rb;                           //  Rigidbodyを取得するよう
     float rayDistance = 1.0f;               //  rayを飛ばす距離
     bool isGround = true;                   //　接地判定
@@ -18,15 +20,18 @@ public class PlayerContoroller : MonoBehaviour
     Vector2 inputDir;   // インプットシステムからの方向入力情報
     Vector3 moveDir;    // カメラ基準の移動ベクトル変数
 
+    [SerializeField] public int bulletcount;
+    private float waitTime = 3.0f; // 3秒後にリロード完了
+    private bool isReloading = false; // リロード中フラグ
+
+    [SerializeField] public int Hp;
     #endregion
 
     #region - Unityイベント
     void Start()
     {
         Init();
-
     }
-
     void Update()
     {
         Hit();　// 接地判定
@@ -35,6 +40,10 @@ public class PlayerContoroller : MonoBehaviour
         if (Keyboard.current.leftShiftKey.wasReleasedThisFrame)
         {
             isSprint = false;
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Hp -= 10;
         }
     }
 
@@ -46,12 +55,28 @@ public class PlayerContoroller : MonoBehaviour
     }
     #endregion
 
-    #region - 初期化関数
+    #region - 初期化処理
+    /// <summary>
+    /// AwakeでInstanceを設定する
+    /// </summary>
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Init()
     {
-        rb = GetComponent<Rigidbody>(); //Rigidbody取得
-        cam = Camera.main.transform;      /// カメラのトランスフォーム情報を取得
+        rb = GetComponent<Rigidbody>();     //Rigidbody取得
+        cam = Camera.main.transform;        // カメラのトランスフォーム情報を取得
+        bulletcount = 30;
+        Hp = 100;
     }
 
     #endregion
@@ -80,10 +105,15 @@ public class PlayerContoroller : MonoBehaviour
     //弾発射処理
     void OnAttack(InputValue val)
     {
+        // リロード中または残弾ゼロの場合は撃てない
+        if (isReloading || bulletcount <= 0) return;
+
         if (val.isPressed)
         {
             Vector3 launch_Pos = cam.transform.position + cam.transform.forward * 1.0f;
             Instantiate(Bullet1, launch_Pos, cam.transform.rotation);
+
+            bulletcount--;
         }
     }
 
@@ -93,6 +123,14 @@ public class PlayerContoroller : MonoBehaviour
         if(val.isPressed)
         {
 
+        }
+    }
+    //リロード用
+    void OnReload(InputValue val)
+    {
+        if (val.isPressed && !isReloading && bulletcount < 30)
+        {
+            StartCoroutine(ReloadCoroutine());
         }
     }
     #endregion
@@ -143,4 +181,21 @@ public class PlayerContoroller : MonoBehaviour
         }
     }
     #endregion
+
+    #region -コルーチン
+    // リロード用コルーチン
+    private IEnumerator ReloadCoroutine()
+    {
+        isReloading = true;
+        Debug.Log("リロード開始...");
+
+        // 3秒待機
+        yield return new WaitForSeconds(waitTime);
+
+        bulletcount = 30;
+        isReloading = false;
+        Debug.Log("3秒経過！リロード完了");
+    }
+    #endregion
+
 }
