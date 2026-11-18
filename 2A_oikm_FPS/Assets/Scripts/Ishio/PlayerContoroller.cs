@@ -198,4 +198,14 @@ public class PlayerContoroller : MonoBehaviour
     }
     #endregion
 
+    #region -Collision”»’è
+    void OnTriggerEnter(Collider c)
+    {
+        if(c.CompareTag("EnemyBullet"))
+        {
+            Hp -= 10;
+            Destroy(c.gameObject);
+        }
+    }
+    #endregion
 }
