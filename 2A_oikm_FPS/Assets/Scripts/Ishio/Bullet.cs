@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     //@•Ï”
     Rigidbody rb;
     float lifeTime = 2.0f;
-    float speed = 0.3f;
+    float speed = 2f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
