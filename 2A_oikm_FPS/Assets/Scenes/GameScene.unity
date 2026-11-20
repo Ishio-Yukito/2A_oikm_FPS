@@ -654,7 +654,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 375
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1046,6 +1046,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685a6c59fc297ee459c3b088fbf95340, type: 3}
+--- !u!1001 &698929637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1907201022177719059, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_Name
+      value: EscapePoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151573871933768907, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 8342200729754654928}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -62.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213138473059295960, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f7cdd1468795e0468f74a64adaba25a, type: 3}
 --- !u!1 &734961594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1434,7 @@ MonoBehaviour:
   hpSlider: {fileID: 1990678703}
   fillObject: {fileID: 836607278}
   weaponUI: {fileID: 1886593212}
+  gatewall: {fileID: 0}
   bulletCountText: {fileID: 1021142460}
 --- !u!4 &798970442
 Transform:
@@ -2447,7 +2509,7 @@ GameObject:
   - component: {fileID: 1189983570}
   - component: {fileID: 1189983569}
   - component: {fileID: 1189983568}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2463,7 +2525,7 @@ Transform:
   m_GameObject: {fileID: 1189983566}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.48, z: 0}
+  m_LocalPosition: {x: 0, y: 1.41, z: 0}
   m_LocalScale: {x: 3, y: 0.1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2723,7 +2785,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 384
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: f95fd60a92ff6f2479ac78e9548507c6, type: 2}
   m_TargetDisplay: 0
@@ -4368,3 +4430,4 @@ SceneRoots:
   - {fileID: 1116982637}
   - {fileID: 2138427294}
   - {fileID: 1086147623}
+  - {fileID: 698929637}

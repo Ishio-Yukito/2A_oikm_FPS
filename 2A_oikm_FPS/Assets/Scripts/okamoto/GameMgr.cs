@@ -8,6 +8,7 @@ public class GameMgr : MonoBehaviour
     [SerializeField] private Slider hpSlider;
     [SerializeField] private GameObject fillObject; // Sliderの「Fill」を指定
     [SerializeField] private GameObject weaponUI;
+    [SerializeField] private GameObject gatewall;   //アイテム取得時にgatewallの近くに行くと解放
 
     // GameObject ではなく Text コンポーネント型で直接受け取る
     [SerializeField] private Text bulletCountText;
@@ -57,9 +58,10 @@ public class GameMgr : MonoBehaviour
     private void UpdateBulletCount()
     {
         // プレイヤーが存在し、テキストUIが割り当てられている場合のみ更新
-        if (K04_Player.Instance != null && bulletCountText != null)
+        if (Player.Instance != null && bulletCountText != null)
         {
-            bulletCountText.text = K04_Player.Instance.bulletcount.ToString();
+            bulletCountText.text = Player.Instance.bulletcount.ToString();
         }
     }
+
 }
