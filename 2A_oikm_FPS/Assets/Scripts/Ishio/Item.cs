@@ -4,8 +4,8 @@ public class Item : MonoBehaviour
 {
     #region
     //[SerializeField] GameObject ItemPanel;
-    bool nearItem = false; //アイテムが近くにあるかどうか
     #endregion
+
     #region Unityイベント
 
     void Start()
@@ -28,7 +28,6 @@ public class Item : MonoBehaviour
         // Playerタグのオブジェクトに触れた場合
         if (c.CompareTag("Player"))
         {
-            nearItem = true;
             //ItemPanel.SetActive(true);
         }
     }
@@ -37,7 +36,6 @@ public class Item : MonoBehaviour
     {
         if (c.CompareTag("Player"))
         {
-            nearItem = false;
             //ItemPanel.SetActive(false);
         }
     }

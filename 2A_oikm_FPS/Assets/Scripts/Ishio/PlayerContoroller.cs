@@ -25,6 +25,8 @@ public class PlayerContoroller : MonoBehaviour
     private bool isReloading = false; // リロード中フラグ
 
     [SerializeField] public int Hp;
+
+    bool isAcquisition = false; //アイテム取得フラグ
     #endregion
 
     #region - Unityイベント
@@ -195,6 +197,16 @@ public class PlayerContoroller : MonoBehaviour
     }
     #endregion
 
+    #region -アイテム取得用関数
+    void AcquisitionItem()
+    {
+        //Item.csのnearItemがtrueだったらアイテム取得フラグをonにしてdestroyする
+        if(CompareTag("Item"))
+        {
+            
+        }
+    }
+    #endregion
     #region -コルーチン
     // リロード用コルーチン
     private IEnumerator ReloadCoroutine()
@@ -214,10 +226,16 @@ public class PlayerContoroller : MonoBehaviour
     #region -Collision判定
     void OnTriggerEnter(Collider c)
     {
+        //敵の弾に当たった時
         if(c.CompareTag("EnemyBullet"))
         {
             Hp -= 10;
             Destroy(c.gameObject);
+        }
+
+        if(c.CompareTag("Item"))
+        {
+            //
         }
     }
     #endregion
