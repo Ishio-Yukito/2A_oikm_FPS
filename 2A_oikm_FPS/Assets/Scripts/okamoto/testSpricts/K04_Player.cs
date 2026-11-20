@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class K04_Player : MonoBehaviour
 {
     ///////// 定数・変数定義 /////////////////////////////////////////////////////////////////////////////////////////////////
-    public static Player Instance { get; private set; }
+    public static K04_Player Instance { get; private set; }
     Vector3 moveVelocity;
     float speed = 0.2f;
     float jumpForce = 8.0f;

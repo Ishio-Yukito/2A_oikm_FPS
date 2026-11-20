@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
-<<<<<<< HEAD
   - EnemyBullet
   - Item
   - Explosion
@@ -15,8 +14,6 @@ TagManager:
   - Wall
   - Ground
   - Death
-=======
->>>>>>> dcf5b3a3690b01a4ad36706dfea4c16b653190b9
   layers:
   - Default
   - TransparentFX
