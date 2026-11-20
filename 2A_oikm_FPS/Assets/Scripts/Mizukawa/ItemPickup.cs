@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    #region
+    bool nearItem = false; //アイテムが近くにあるかどうか
+    #endregion
     #region Unityイベント
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

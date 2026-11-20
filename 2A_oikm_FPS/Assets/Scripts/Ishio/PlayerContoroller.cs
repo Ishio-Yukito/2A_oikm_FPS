@@ -31,6 +31,7 @@ public class PlayerContoroller : MonoBehaviour
     void Start()
     {
         Init();
+        MouseOperation();
     }
     void Update()
     {
@@ -110,7 +111,7 @@ public class PlayerContoroller : MonoBehaviour
 
         if (val.isPressed)
         {
-            Vector3 launch_Pos = cam.transform.position + cam.transform.forward * 1.0f;
+            Vector3 launch_Pos = cam.transform.position + cam.transform.forward * 1.5f;
             Instantiate(Bullet1, launch_Pos, cam.transform.rotation);
 
             bulletcount--;
@@ -122,7 +123,7 @@ public class PlayerContoroller : MonoBehaviour
     {
         if(val.isPressed)
         {
-
+            Debug.Log("Fキーが押されました");
         }
     }
     //リロード用
@@ -133,6 +134,7 @@ public class PlayerContoroller : MonoBehaviour
             StartCoroutine(ReloadCoroutine());
         }
     }
+
     #endregion
 
     #region - 当たり判定用関数
@@ -179,6 +181,17 @@ public class PlayerContoroller : MonoBehaviour
             float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);  /// 角度補間
             transform.rotation = Quaternion.Euler(0, newAngle, 0);                  /// 実際の角度に補間結果を適用
         }
+    }
+    #endregion
+
+    #region -マウス操作用関数
+    void MouseOperation()
+    {
+        // マウスカーソルを画面中央に固定
+        Cursor.lockState = CursorLockMode.Locked;
+
+        // マウスカーソルを非表示
+        Cursor.visible = false;
     }
     #endregion
 
