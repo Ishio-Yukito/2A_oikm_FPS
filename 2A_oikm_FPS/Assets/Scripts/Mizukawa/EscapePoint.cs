@@ -80,14 +80,14 @@ public class EscapePoint : MonoBehaviour
     // 脱出を完了する関数
     void Escape()
     {
-        // Playerを取得
-        Player playerScript = player.GetComponent<Player>();
+        // Player_Kariを取得
+        Player_Kari playerScript = player.GetComponent<Player_Kari>();
 
         // プレイヤーが存在する場合
         if (playerScript != null)
         {
             // 脱出完了
-            //playerScript.EscapeCompleted();
+            playerScript.EscapeCompleted();
         }
     }
 

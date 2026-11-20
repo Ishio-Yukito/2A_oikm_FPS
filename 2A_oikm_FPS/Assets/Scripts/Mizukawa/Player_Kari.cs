@@ -17,6 +17,9 @@ public class Player_Kari : MonoBehaviour
 
     float verticalVelocity;
 
+    // 脱出完了フラグ
+    bool isEscaped = false;
+
     #endregion
 
     #region Unityイベント
@@ -44,7 +47,7 @@ public class Player_Kari : MonoBehaviour
     void Update()
     {
         // 必要なコンポーネントがなければ終了
-        if (controller == null || mainCamera == null)
+        if (controller == null || !controller.enabled || mainCamera == null)
         {
             return;
         }
@@ -120,6 +123,24 @@ public class Player_Kari : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10f * Time.deltaTime);
         }
+    }
+
+    #endregion
+
+    #region 脱出完了処理
+
+    // 脱出完了時の処理
+    public void EscapeCompleted()
+    {
+        // すでに脱出していたら処理しない
+        if (isEscaped)
+        {
+            return;
+        }
+
+        isEscaped = true;
+
+        Debug.Log("脱出成功！");
     }
 
     #endregion

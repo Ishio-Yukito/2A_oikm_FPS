@@ -58,9 +58,9 @@ public class GameMgr : MonoBehaviour
     private void UpdateBulletCount()
     {
         // プレイヤーが存在し、テキストUIが割り当てられている場合のみ更新
-        if (Player.Instance != null && bulletCountText != null)
+        if (K04_Player.Instance != null && bulletCountText != null)
         {
-            bulletCountText.text = Player.Instance.bulletcount.ToString();
+            bulletCountText.text = K04_Player.Instance.bulletcount.ToString();
         }
     }
 
